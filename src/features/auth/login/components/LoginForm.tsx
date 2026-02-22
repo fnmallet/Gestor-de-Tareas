@@ -8,7 +8,7 @@ import Input from '@/components/Input';
 import Heading from '@/components/Heading';
 import Button from '@/components/Button';
 import HorizontalLine from '@/components/HorizontalLine';
-import LinkStyled from '@/components/Link';
+import LinkStyled from '@/components/LinkStyled';
 import { routes } from '@/constants/routes';
 import { zodResolver } from '@hookform/resolvers/zod';
 

@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { registerSchema, RegisterSchemaFieldNames, RegisterSchemaType } from '@/features/auth/register/schemas/registerSchema';
 import Form from '@/components/Form';
 import { routes } from '@/constants/routes';
-import LinkStyled from '@/components/Link';
+import LinkStyled from '@/components/LinkStyled';
 import Button from '@/components/Button';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Heading from '@/components/Heading';

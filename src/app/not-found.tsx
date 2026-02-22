@@ -1,7 +1,7 @@
 import Heading from '@/components/Heading';
 import Image from 'next/image';
 import NotFoundImage from '@/assets/images/not-found.jpg';
-import LinkStyled from '@/components/Link';
+import LinkStyled from '@/components/LinkStyled';
 import { routes } from '@/constants/routes';
 
 const NotFound = () => {

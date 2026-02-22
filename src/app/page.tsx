@@ -1,5 +1,5 @@
 import Heading from '@/components/Heading';
-import LinkStyled from '@/components/Link';
+import LinkStyled from '@/components/LinkStyled';
 import { appPath, routes } from '@/constants/routes';
 
 const RootPage = () => {
