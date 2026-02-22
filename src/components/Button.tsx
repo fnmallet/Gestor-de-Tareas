@@ -6,6 +6,8 @@ type Button = {
   className?: string;
 }
 
+export const buttonClasses = 'transition-colors duration-300 bg-blue-500 hover:bg-white hover:outline hover:outline-blue-500 hover:text-blue-500 cursor-pointer py-1 px-4 rounded-md text-white hover:shadow-md hover:shadow-blue-200 text-center';
+
 const Button = ({ children, type, className }: Button) => {
   return <button 
     type={type} 
