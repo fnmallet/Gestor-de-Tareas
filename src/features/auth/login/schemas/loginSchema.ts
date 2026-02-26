@@ -1,7 +1,10 @@
 import z from 'zod';
 
 export const loginSchema = z.object({
-  email: z.email().min(1, 'Este campo es obligatorio'),
+  email: z.intersection(
+    z.string().min(1, 'Este campo es obligatorio'),
+    z.email('Email inválido')
+  ),
   password: z.string().min(1, 'Este campo es obligatorio'),
 });
 

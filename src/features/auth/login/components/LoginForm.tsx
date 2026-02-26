@@ -28,10 +28,10 @@ const LoginForm = () => {
   >
     <Heading level={1}>Inicio de sesión</Heading>
     <div className='flex flex-col gap-8 items-center'>
-      <FormField inputId={LoginSchemaFieldNames.email} label="Email">
-        <Input id={LoginSchemaFieldNames.email} type="email" {...methods.register(LoginSchemaFieldNames.email)} />
+      <FormField inputId={LoginSchemaFieldNames.email} label="Email" error={methods.formState.errors.email?.message}>
+        <Input id={LoginSchemaFieldNames.email} type="text" {...methods.register(LoginSchemaFieldNames.email)} />
       </FormField>
-      <FormField inputId={LoginSchemaFieldNames.password} label="Contraseña">
+      <FormField inputId={LoginSchemaFieldNames.password} label="Contraseña" error={methods.formState.errors.password?.message}>
         <Input id={LoginSchemaFieldNames.password} type="password" {...methods.register(LoginSchemaFieldNames.password)} />
       </FormField>
     </div>
