@@ -5,7 +5,7 @@ import { appPath, routes } from '@/constants/routes';
 
 const RootPage = () => {
   return <>
-    <div className='absolute top-0 left-0 w-dvw h-dvh -z-10 bg-[linear-gradient(to_right,#2b7fff12_1px,transparent_1px),linear-gradient(to_bottom,#2b7fff12_1px,transparent_1px)] bg-size-[4rem_4rem] bg-center'></div>
+    <div className='absolute top-0 left-0 w-full h-full -z-10 bg-[linear-gradient(to_right,#2b7fff12_1px,transparent_1px),linear-gradient(to_bottom,#2b7fff12_1px,transparent_1px)] bg-size-[4rem_4rem] bg-center'></div>
     <div className='flex flex-col justify-center items-center mt-16 h-full w-full gap-16 px-4'>
       <Heading level={1}>Bienvenido al Gestor de Tareas</Heading>
       <div className='text-center flex flex-col gap-2'>
