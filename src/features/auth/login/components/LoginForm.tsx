@@ -11,17 +11,20 @@ import HorizontalLine from '@/components/HorizontalLine';
 import LinkStyled from '@/components/LinkStyled';
 import { routes } from '@/constants/routes';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTransition } from 'react';
 
 const LoginForm = () => {
   const methods = useForm<LoginSchemaType>({
     resolver: zodResolver(loginSchema)
   });
+  const [isPending, startTransition] = useTransition();
   const onSubmit = async (data: LoginSchemaType) => {
-    console.log(data);
+    startTransition(async () => {
+      await loginAction(data);
+    });
   };
 
   return <Form
-    action={loginAction}
     methods={methods}
     onSubmit={onSubmit}
     className='w-xs mx-auto flex flex-col gap-8 border border-gray-100 rounded-2xl box-content p-16 shadow-lg'
@@ -35,7 +38,7 @@ const LoginForm = () => {
         <Input id={LoginSchemaFieldNames.password} type="password" {...methods.register(LoginSchemaFieldNames.password)} />
       </FormField>
     </div>
-    <Button className='w-full'>Iniciar sesión</Button>
+    <Button className='w-full' type="submit" isLoading={isPending} disabled={isPending}>Iniciar sesión</Button>
     <HorizontalLine />
     <div className='flex flex-col gap-2'>
       <span className='text-center'>¿Olvidaste tu contraseña? <LinkStyled href={routes.auth.passwordRecovery}>Restablecer</LinkStyled></span>

@@ -1,11 +1,9 @@
 'use server';
 import { signIn } from '@/features/auth/auth';
-import { loginSchema } from './schemas/loginSchema';
+import { LoginSchemaType } from '@/features/auth/login/schemas/loginSchema';
 
-export const loginAction = async (formData: FormData) => {
-  const formValues = Object.fromEntries(formData.entries());
+export const loginAction = async (data: LoginSchemaType) => {
+  signIn('credentials', data);
 
-  const validatedData = loginSchema.parse(formValues);
-
-  await signIn('credentials', validatedData);
+  return undefined;
 };

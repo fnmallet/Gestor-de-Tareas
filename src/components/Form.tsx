@@ -3,7 +3,7 @@ import {  ReactNode } from 'react';
 import { FieldValues, SubmitHandler, UseFormReturn } from 'react-hook-form';
 
 type FormProps<T extends FieldValues> = {
-  action: (formData: FormData) => Promise<void>;
+  action?: (formData: FormData) => Promise<void> | void | undefined;
   children: ReactNode;
   onSubmit: SubmitHandler<T>;
   methods: UseFormReturn<T>;
