@@ -17,7 +17,7 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} antialiased min-h-dvh flex justify-center`}
       >
-        <NextTopLoader color='#2b7fff' />
+        <NextTopLoader color='#2b7fff' showSpinner={false} />
         {children}
       </body>
     </html>
