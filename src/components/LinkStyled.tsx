@@ -14,7 +14,7 @@ const LinkStyled = ({ children, href, className, buttonStyle }: LinkStyledProps)
     href={href}
     className={cn({
       [buttonClasses]: buttonStyle,
-      'hover:text-blue-500 visited:text-blue-800': !buttonStyle
+      'hover:text-blue-500 visited:text-blue-800 hover:underline': !buttonStyle
     }, className)}
   >
     {children}
