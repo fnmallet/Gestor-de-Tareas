@@ -6,8 +6,11 @@ export const routes = {
     login: '/login',
     register: '/register',
     passwordRecovery: '/password-recovery',
+    logout: '/logout',
   },
   [appPath]: {
-    main: appPath + '/main',
+    dashboard: appPath + '/dashboard',
+    boards: appPath + '/boards',
+    account: appPath + '/account',
   }
 };
