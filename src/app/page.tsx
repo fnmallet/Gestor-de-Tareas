@@ -16,7 +16,7 @@ const RootPage = () => {
         <Heading level={2} className='mb-8'>¿Qué deseas hacer?</Heading>
         <LinkStyled buttonStyle className='' href={routes.auth.login}>Iniciar sesión</LinkStyled>
         <LinkStyled buttonStyle className='' href={routes.auth.register}>Registrarse</LinkStyled>
-        <LinkStyled buttonStyle className='' href={routes[appPath].main}>Ir a la aplicación</LinkStyled>
+        <LinkStyled buttonStyle className='' href={routes[appPath].dashboard}>Ir a la aplicación</LinkStyled>
       </div>
       <Footer />
     </div>
