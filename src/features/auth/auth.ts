@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthConfig } from 'next-auth';
+import NextAuth, { CredentialsSignin, NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { comparePassword, saltAndHashPassword } from '@/utils/password';
 import prisma from '@/lib/prisma';
@@ -16,7 +16,7 @@ export const authConfig = {
         if (isLoggedIn) return true;
         return false;
       } else if (isLoggedIn) {
-        return Response.redirect(new URL(routes[appPath].main, nextUrl));
+        return Response.redirect(new URL(routes[appPath].dashboard, nextUrl));
       }
       return true;
     },
@@ -29,7 +29,7 @@ export const authConfig = {
     authorize: async (credentials) => {
       let user = null;
       if(typeof credentials?.password !== 'string' || typeof credentials?.email !== 'string') {
-        throw new Error('Invalid credentials.');
+        throw new CredentialsSignin();
       }
       const pwHash = await saltAndHashPassword(credentials.password);
 
@@ -38,9 +38,8 @@ export const authConfig = {
           email: credentials.email,
         }
       });
-
       if (!user || await comparePassword(user.password, pwHash)) {
-        throw new Error('Invalid credentials.');
+        throw new CredentialsSignin();
       }
  
       return {

@@ -7,10 +7,11 @@ import { registerSchema, RegisterSchemaFieldNames, RegisterSchemaType } from '@/
 import Form from '@/components/Form';
 import { routes } from '@/constants/routes';
 import LinkStyled from '@/components/LinkStyled';
-import Button from '@/components/Button';
+import Button, { buttonClasses } from '@/components/Button';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Heading from '@/components/Heading';
 import Tooltip from '@/components/Tooltip';
+import { cn } from '@/utils/cn';
 
 const RegisterForm = () => {
   const methods = useForm<RegisterSchemaType>({
@@ -25,10 +26,10 @@ const RegisterForm = () => {
     action={registerAction}
     methods={methods}
     onSubmit={onSubmit}
-    className='w-xs mx-auto flex flex-col gap-8 border border-gray-100 rounded-2xl box-content p-16 shadow-lg'
+    className='w-xs mx-auto flex flex-col gap-4 border border-gray-100 rounded-2xl box-content p-16 shadow-lg'
   >
     <Heading level={1}>Registro</Heading>
-    <div className='flex flex-col gap-8 items-center'>
+    <div className='flex flex-col gap-8 items-center mb-4'>
       <FormField 
         label="Email*" 
         inputId={RegisterSchemaFieldNames.email} 
@@ -62,7 +63,7 @@ const RegisterForm = () => {
         <Input type="password" id={RegisterSchemaFieldNames.password} {...methods.register(RegisterSchemaFieldNames.password)} />
       </FormField>
     </div>
-    <Button className='w-full' type='submit'>Registrarse</Button>
+    <Button className={cn(buttonClasses, 'w-full')} type='submit'>Registrarse</Button>
     <div className='h-px w-full bg-gray-500'></div>
     <span className='text-center'>¿Ya tienes una cuenta? <LinkStyled href={routes.auth.login}>Iniciá sesión</LinkStyled></span>
   </Form>;
